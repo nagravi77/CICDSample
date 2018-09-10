@@ -26,7 +26,7 @@ namespace CICDSample.Controllers
         {
             var request = new OperationRequest();
             request.Number1 = 100;
-            request.Number2 = 20;
+            request.Number2 = 200;
             var response = _operations.Add(request);
             return View(response);
         }
