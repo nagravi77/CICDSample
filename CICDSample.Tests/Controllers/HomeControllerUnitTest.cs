@@ -1,26 +1,26 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CICDSample.Controllers;
 using BAL;
 using Moq;
 using System.Web.Mvc;
+using NUnit.Framework;
 
 namespace CICDSample.Tests.Controllers
 {
-    [TestClass]
+    [TestFixture]
     public class HomeControllerUnitTest
     {
         private Mock<IOperations> _operations;
         private HomeController _homeController;
 
-        [TestInitialize]
+        [SetUp]
         public void Setup()
         {
             _operations = new Mock<IOperations>();
             _homeController = new HomeController(_operations.Object);
         }
 
-        [TestMethod]
+        [Test]
         public void Test_Index_Controller()
         {
             var result = _homeController.Index() as ViewResult;
@@ -28,7 +28,7 @@ namespace CICDSample.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        [TestMethod]
+        [Test]
         public void HomeController_Add_Test()
         {
             var result = _homeController.Add() as ViewResult;
